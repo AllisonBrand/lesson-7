@@ -85,15 +85,21 @@ object building:..4
     measured_demand_timestep 1wk;
 }
 
-// Task 3 - Add an industrial load to load 4
-object industrial
-{
+
+// Add meter around it
+object meter
+{                       // Task 3 - Add an industrial load to load 4
+    name meter_task3;
     parent load_4;
-    industry_code "MECS_313";
-    P0 1 MW;
-    schedule "1-12,0-4,12-23,1,0.5,0.5,0.5,0.5,0.5,0.5,0.99";
-    schedule "1-12,0-4,0-11,1.0,0.95";
-    schedule "1-12,5-6,0-11,0.1";
+    object industrial
+    {
+       parent meter_task3;
+       industry_code "MECS_313";
+       P0 1 MW;
+       schedule "1-12,0-4,12-23,1,0.5,0.5,0.5,0.5,0.5,0.5,0.99";
+       schedule "1-12,0-4,0-11,1.0,0.95";
+       schedule "1-12,5-6,0-11,0.1";
+    }
 }
 
 // Task 4 - Add an agricultural load to load 5
