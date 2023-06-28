@@ -90,7 +90,7 @@ object meter // Add meter around it
        temperature_source "forecast.temperature";
    
        measured_demand_timestep 1wk;
-    }
+    };
 }
 
 object meter // Add meter around it
